@@ -13,27 +13,27 @@ namespace KeyPay.ApiFunctions.V2
 
         public IList<ExpenseCategoryModel> List(int businessId)
         {
-            return ApiRequest<List<ExpenseCategoryModel>>("/business/" + businessId + "/employeeexpensecategory");
+            return ApiRequest<List<ExpenseCategoryModel>>($"/business/{businessId}/employeeexpensecategory");
         }
 
         public ExpenseCategoryModel Create(int businessId, ExpenseCategoryModel model)
         {
-            return ApiRequest<ExpenseCategoryModel, ExpenseCategoryModel>("/business/" + businessId + "/employeeexpensecategory", model, Method.POST);
+            return ApiRequest<ExpenseCategoryModel, ExpenseCategoryModel>($"/business/{businessId}/employeeexpensecategory", model, Method.POST);
         }
 
         public ExpenseCategoryModel Update(int businessId, ExpenseCategoryModel model)
         {
-            return ApiRequest<ExpenseCategoryModel, ExpenseCategoryModel>("/business/" + businessId + "/employeeexpensecategory/" + model.Id, model, Method.PUT);
+            return ApiRequest<ExpenseCategoryModel, ExpenseCategoryModel>($"/business/{businessId}/employeeexpensecategory/{model.Id}", model, Method.PUT);
         }
 
         public void Delete(int businessId, int expenseCategoryId)
         {
-            ApiRequest("/business/" + businessId + "/employeeexpensecategory/" + expenseCategoryId, Method.DELETE);
+            ApiRequest($"/business/{businessId}/employeeexpensecategory/{expenseCategoryId}", Method.DELETE);
         }
 
         public IList<JournalServiceTaxCodeModel> TaxCodes(int businessId)
         {
-            return ApiRequest<List<JournalServiceTaxCodeModel>>("/business/" + businessId + "/employeeexpensecategory/taxcodes");
+            return ApiRequest<List<JournalServiceTaxCodeModel>>($"/business/{businessId}/employeeexpensecategory/taxcodes");
         }
     }
 }

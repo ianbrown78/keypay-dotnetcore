@@ -10,7 +10,7 @@ namespace KeyPay.ApiFunctions.V2
 
         public SuperAdjustmentResponse List(int businessId, int payRunId)
         {
-            return ApiRequest<SuperAdjustmentResponse>("/business/" + businessId + "/payrun/" + payRunId + "/superadjustments");
+            return ApiRequest<SuperAdjustmentResponse>($"/business/{businessId}/payrun/{payRunId}/superadjustments");
         }
     }
 }

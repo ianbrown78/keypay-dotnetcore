@@ -16,48 +16,57 @@ namespace KeyPay.ApiFunctions.V2
 
         public List<ActivityReportExportModel> PayRunActivity(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0)
         {
-            return ApiRequest<List<ActivityReportExportModel>>(string.Format("/business/{0}/report/payrunactivity?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&payScheduleId={3}&locationId={4}", businessId, fromDate, toDate, payScheduleId, locationId));
+            return ApiRequest<List<ActivityReportExportModel>>(
+                $"/business/{businessId}/report/payrunactivity?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&payScheduleId={payScheduleId}&locationId={locationId}");
         }
 
         public List<DetailedActivityReportExportModel> DetailedActivity(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0, int? employingEntityId = 0)
         {
-            return ApiRequest<List<DetailedActivityReportExportModel>>(string.Format("/business/{0}/report/detailedactivity?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&payScheduleId={3}&locationId={4}&employingEntityId={5}", businessId, fromDate, toDate, payScheduleId, locationId, employingEntityId));
+            return ApiRequest<List<DetailedActivityReportExportModel>>(
+                $"/business/{businessId}/report/detailedactivity?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&payScheduleId={payScheduleId}&locationId={locationId}&employingEntityId={employingEntityId}");
         }
 
         public List<SuperAccrualExportModel> SuperContributionsByEmployee(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0, int? employingEntityId = 0)
         {
-            return ApiRequest<List<SuperAccrualExportModel>>(string.Format("/business/{0}/report/supercontributions/byemployee?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&payScheduleId={3}&locationId={4}&employingEntityId={5}", businessId, fromDate, toDate, payScheduleId, locationId, employingEntityId));
+            return ApiRequest<List<SuperAccrualExportModel>>(
+                $"/business/{businessId}/report/supercontributions/byemployee?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&payScheduleId={payScheduleId}&locationId={locationId}&employingEntityId={employingEntityId}");
         }
 
         public List<SuperContributionsReportExportModel> SuperContributionsBySuperFund(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0, int? employingEntityId = 0)
         {
-            return ApiRequest<List<SuperContributionsReportExportModel>>(string.Format("/business/{0}/report/supercontributions/bysuperfund?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&payScheduleId={3}&locationId={4}&employingEntityId={5}", businessId, fromDate, toDate, payScheduleId, locationId, employingEntityId));
+            return ApiRequest<List<SuperContributionsReportExportModel>>(
+                $"/business/{businessId}/report/supercontributions/bysuperfund?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&payScheduleId={payScheduleId}&locationId={locationId}&employingEntityId={employingEntityId}");
         }
 
         public List<DeductionsReportExportModel> Deductions(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0, int employeeId = 0, int deductionCategoryId = 0, int? employingEntityId = 0)
         {
-            return ApiRequest<List<DeductionsReportExportModel>>(string.Format("/business/{0}/report/deductions?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}&employeeId={4}&deductionCategoryId={5}&payScheduleId={6}&employingEntityId={7}", businessId, fromDate, toDate, locationId, employeeId, deductionCategoryId, payScheduleId, employingEntityId));
+            return ApiRequest<List<DeductionsReportExportModel>>(
+                $"/business/{businessId}/report/deductions?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}&employeeId={employeeId}&deductionCategoryId={deductionCategoryId}&payScheduleId={payScheduleId}&employingEntityId={employingEntityId}");
         }
 
         public List<PayCategoriesReportExportModel> PayCategories(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0, int employeeId = 0, int? employingEntityId = 0, bool groupByEarningsLocation = false)
         {
-            return ApiRequest<List<PayCategoriesReportExportModel>>(string.Format("/business/{0}/report/paycategories?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}&employeeId={4}&payScheduleId={5}&employingEntityId={6}&groupByEarningsLocation={7}", businessId, fromDate, toDate, locationId, employeeId, payScheduleId, employingEntityId, groupByEarningsLocation));
+            return ApiRequest<List<PayCategoriesReportExportModel>>(
+                $"/business/{businessId}/report/paycategories?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}&employeeId={employeeId}&payScheduleId={payScheduleId}&employingEntityId={employingEntityId}&groupByEarningsLocation={groupByEarningsLocation}");
         }
 
         public List<PaymentHistoryReportExportModel> PaymentHistory(int businessId, DateTime fromDate, DateTime toDate, int locationId = 0, int employeeId = 0, int? employingEntityId = 0)
         {
-            return ApiRequest<List<PaymentHistoryReportExportModel>>(string.Format("/business/{0}/report/paymenthistory?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}&employeeId={4}&employingEntityId={5}", businessId, fromDate, toDate, locationId, employeeId, employingEntityId));
+            return ApiRequest<List<PaymentHistoryReportExportModel>>(
+                $"/business/{businessId}/report/paymenthistory?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}&employeeId={employeeId}&employingEntityId={employingEntityId}");
         }
 
         public List<LeaveBalancesReportExportModel> LeaveBalances(int businessId, int locationId = 0, int leaveTypeId = 0, bool useDefaultLocation = false, int? employingEntityId = 0)
         {
             var groupBy = useDefaultLocation ? LeaveReportDisplay.DefaultLocation : LeaveReportDisplay.AccrualLocation;
-            return ApiRequest<List<LeaveBalancesReportExportModel>>(string.Format("/business/{0}/report/leavebalances?locationId={1}&leaveTypeId={2}&groupBy={3}&employingEntityId={4}", businessId, locationId, leaveTypeId, groupBy, employingEntityId));
+            return ApiRequest<List<LeaveBalancesReportExportModel>>(
+                $"/business/{businessId}/report/leavebalances?locationId={locationId}&leaveTypeId={leaveTypeId}&groupBy={groupBy}&employingEntityId={employingEntityId}");
         }
 
         public List<BirthdayReportExportModel> Birthday(int businessId, DateTime fromDate, DateTime toDate, int locationId = 0)
         {
-            return ApiRequest<List<BirthdayReportExportModel>>(string.Format("/business/{0}/report/birthday?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}", businessId, fromDate, toDate, locationId));
+            return ApiRequest<List<BirthdayReportExportModel>>(
+                $"/business/{businessId}/report/birthday?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}");
         }
 
         public List<RosterLiveLeaveAccruals> LeaveBalancesExport(int businessId, int[] payScheduleIds)
@@ -71,13 +80,14 @@ namespace KeyPay.ApiFunctions.V2
                     payScheduleFilter.AppendFormat("payScheduleIds={0}&", payScheduleId);
                 }
             }
-            var result = ApiJsonRequest(string.Format("/business/{0}/report/leavebalancesexport{1}", businessId, payScheduleFilter));
+            var result = ApiJsonRequest($"/business/{businessId}/report/leavebalancesexport{payScheduleFilter}");
             return JsonConvert.DeserializeObject<List<RosterLiveLeaveAccruals>>(result);
         }
 
         public List<PayrollExemptReportExportModel> PayrollExempt(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0, int? employingEntityId = 0, string state = null)
         {
-            return ApiRequest<List<PayrollExemptReportExportModel>>(string.Format("/business/{0}/report/payrollexempt?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}&payscheduleid={4}&employingEntityId={5}&state={6}", businessId, fromDate, toDate, locationId, payScheduleId, employingEntityId, state));
+            return ApiRequest<List<PayrollExemptReportExportModel>>(
+                $"/business/{businessId}/report/payrollexempt?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}&payscheduleid={payScheduleId}&employingEntityId={employingEntityId}&state={state}");
         }
 
         public List<MLCSuperReportExportModel> MLCSuperExport(int businessId, int[] payScheduleIds)
@@ -91,24 +101,27 @@ namespace KeyPay.ApiFunctions.V2
                     payScheduleFilter.AppendFormat("payScheduleIds={0}&", payScheduleId);
                 }
             }
-            return ApiRequest<List<MLCSuperReportExportModel>>(string.Format("/business/{0}/report/mlcsuper{1}", businessId, payScheduleFilter));
+            return ApiRequest<List<MLCSuperReportExportModel>>(
+                $"/business/{businessId}/report/mlcsuper{payScheduleFilter}");
         }
 
         public List<WorkersCompReportGridModel> WorkersComp(int businessId, DateTime fromDate, DateTime toDate, int locationId = 0)
         {
-            var url = string.Format("/business/{0}/report/workerscomp?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}", businessId, fromDate, toDate, locationId);
+            var url =
+                $"/business/{businessId}/report/workerscomp?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}";
             return ApiRequest<List<WorkersCompReportGridModel>>(url);
         }
 
         public List<LeaveHistoryReportGroupModel> LeaveHistory(int businessId, DateTime fromDate, DateTime toDate, int payScheduleId = 0, int locationId = 0)
         {
-            var url = string.Format("/business/{0}/report/leavehistory?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&payScheduleId={3}&locationId={4}", businessId, fromDate, toDate, payScheduleId, locationId);
+            var url =
+                $"/business/{businessId}/report/leavehistory?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&payScheduleId={payScheduleId}&locationId={locationId}";
             return ApiRequest<List<LeaveHistoryReportGroupModel>>(url);
         }
 
         public List<EmployeeDetailsReportField> EmployeeDetailsFields(int businessId)
         {
-            var url = string.Format("/business/{0}/report/employeedetails/fields", businessId);
+            var url = $"/business/{businessId}/report/employeedetails/fields";
             return ApiRequest<List<EmployeeDetailsReportField>>(url);
         }
 
@@ -124,10 +137,11 @@ namespace KeyPay.ApiFunctions.V2
                 }
                 combinedSelectedFields = builder.ToString();
             }
-            var url = string.Format("/business/{0}/report/employeedetails?{1}locationId={2}&includeActive={3}&includeInactive={4}", businessId, combinedSelectedFields, locationId, includeActive, includeInactive);
+            var url =
+                $"/business/{businessId}/report/employeedetails?{combinedSelectedFields}locationId={locationId}&includeActive={includeActive}&includeInactive={includeInactive}";
             if (employingEntityId != null)
             {
-                url = string.Format("{0}&employingEntityId={1}", url, employingEntityId);
+                url = $"{url}&employingEntityId={employingEntityId}";
             }
             var data = ApiJsonRequest<List<dynamic>>(url);
             return data;
@@ -135,19 +149,22 @@ namespace KeyPay.ApiFunctions.V2
 
         public List<PayrollTaxReportExportModel> PayrollTax(int businessId, DateTime fromDate, DateTime toDate, int locationId = 0, int? employingEntityId = null)
         {
-            var url = string.Format("/business/{0}/report/payrolltax?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}{4}", businessId, fromDate, toDate, locationId, employingEntityId.HasValue ? "&employingEntityId=" + employingEntityId.Value : "");
+            var url =
+                $"/business/{businessId}/report/payrolltax?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}{(employingEntityId.HasValue ? "&employingEntityId=" + employingEntityId.Value : "")}";
             return ApiJsonRequest<List<PayrollTaxReportExportModel>>(url);
         }
 
         public List<PaygReportExportModel> PaygWithholding(int businessId, DateTime fromDate, DateTime toDate, int locationId = 0, int? employingEntityId = null, string state = null)
         {
-            var url = string.Format("/business/{0}/report/payg?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&locationId={3}&state={4}{5}", businessId, fromDate, toDate, locationId, state, employingEntityId.HasValue ? "&employingEntityId=" + employingEntityId.Value : "");
+            var url =
+                $"/business/{businessId}/report/payg?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&locationId={locationId}&state={state}{(employingEntityId.HasValue ? "&employingEntityId=" + employingEntityId.Value : "")}";
             return ApiJsonRequest<List<PaygReportExportModel>>(url);
         }
 
         public List<LeaveLiabilityReportExportModel> LeaveLiability(int businessId, DateTime? asAtDate = null, int locationId = 0, int leaveTypeId = 0, bool includeApprovedLeave = true)
         {
-            var url = string.Format("/business/{0}/report/leaveliability?locationId={1}&asAtDate={2:yyyy-MM-dd}&leaveTypeId={3}&includeApprovedLeave={4}", businessId, locationId, asAtDate, leaveTypeId, includeApprovedLeave);
+            var url =
+                $"/business/{businessId}/report/leaveliability?locationId={locationId}&asAtDate={asAtDate:yyyy-MM-dd}&leaveTypeId={leaveTypeId}&includeApprovedLeave={includeApprovedLeave}";
             return ApiRequest<List<LeaveLiabilityReportExportModel>>(url);
         }
 
@@ -162,7 +179,8 @@ namespace KeyPay.ApiFunctions.V2
                     payCategoryFilter.Append($"&payCategoryIds={payCategoryId}");
                 }
             }
-            var url = string.Format("/business/{0}/report/grosstonet?fromDate={1:yyyy-MM-dd}&toDate={2:yyyy-MM-dd}&payScheduleId={3}&locationId={4}&employeeId={5}{6}{7}", businessId, fromDate, toDate, payScheduleId, locationId, employeeId, employingEntityFilter, payCategoryFilter);
+            var url =
+                $"/business/{businessId}/report/grosstonet?fromDate={fromDate:yyyy-MM-dd}&toDate={toDate:yyyy-MM-dd}&payScheduleId={payScheduleId}&locationId={locationId}&employeeId={employeeId}{employingEntityFilter}{payCategoryFilter}";
             return ApiJsonRequest<List<GrossToNetReportExportModel>>(url);
         }
     }

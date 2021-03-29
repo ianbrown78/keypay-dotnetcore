@@ -13,27 +13,27 @@ namespace KeyPay.ApiFunctions.V2
 
         public WorkTypeModel Get(int businessId, int workTypeId)
         {
-            return ApiRequest<WorkTypeModel>(string.Format("/business/{0}/worktype/{1}", businessId, workTypeId));
+            return ApiRequest<WorkTypeModel>($"/business/{businessId}/worktype/{workTypeId}");
         }
 
         public IList<WorkTypeModel> List(int businessId)
         {
-            return ApiRequest<List<WorkTypeModel>>(string.Format("/business/{0}/worktype", businessId));
+            return ApiRequest<List<WorkTypeModel>>($"/business/{businessId}/worktype");
         }
 
         public WorkTypeModel Create(int businessId, WorkTypeModel model)
         {
-            return ApiRequest<WorkTypeModel, WorkTypeModel>("/business/" + businessId + "/worktype", model, Method.POST);
+            return ApiRequest<WorkTypeModel, WorkTypeModel>($"/business/{businessId}/worktype", model, Method.POST);
         }
 
         public void Update(int businessId, WorkTypeModel model)
         {
-            ApiRequest("/business/" + businessId + "/worktype/" + model.Id, model, Method.PUT);
+            ApiRequest($"/business/{businessId}/worktype/{model.Id}", model, Method.PUT);
         }
 
         public void Delete(int businessId, int workTypeId)
         {
-            ApiRequest("/business/" + businessId + "/worktype/" + workTypeId, Method.DELETE);
+            ApiRequest($"/business/{businessId}/worktype/{workTypeId}", Method.DELETE);
         }
     }
 }

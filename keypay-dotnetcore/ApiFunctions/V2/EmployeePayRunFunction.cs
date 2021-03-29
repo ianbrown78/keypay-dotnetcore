@@ -11,7 +11,7 @@ namespace KeyPay.ApiFunctions.V2
         
         public IList<PayRunTotalModel> List(int businessId, int employeeId)
         {
-            return ApiRequest<List<PayRunTotalModel>>(string.Format("/business/{0}/employee/{1}/payruntotals", businessId, employeeId));
+            return ApiRequest<List<PayRunTotalModel>>($"/business/{businessId}/employee/{employeeId}/payruntotals");
         }
     }
 }

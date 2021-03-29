@@ -13,22 +13,22 @@ namespace KeyPay.ApiFunctions.V2
 
         public IList<DeductionCategoryModel> List(int businessId)
         {
-            return ApiRequest<List<DeductionCategoryModel>>("/business/" + businessId + "/deductioncategory");
+            return ApiRequest<List<DeductionCategoryModel>>($"/business/{businessId}/deductioncategory");
         }
 
         public DeductionCategoryModel Create(int businessId, DeductionCategoryModel model)
         {
-            return ApiRequest<DeductionCategoryModel, DeductionCategoryModel>("/business/" + businessId + "/deductioncategory", model, Method.POST);
+            return ApiRequest<DeductionCategoryModel, DeductionCategoryModel>($"/business/{businessId}/deductioncategory", model, Method.POST);
         }
 
         public DeductionCategoryModel Update(int businessId, DeductionCategoryModel model)
         {
-            return ApiRequest<DeductionCategoryModel, DeductionCategoryModel>("/business/" + businessId + "/deductioncategory/" + model.Id, model, Method.PUT);
+            return ApiRequest<DeductionCategoryModel, DeductionCategoryModel>($"/business/{businessId}/deductioncategory/{model.Id}", model, Method.PUT);
         }
 
         public void Delete(int businessId, int deductionCategoryId)
         {
-            ApiRequest("/business/" + businessId + "/deductioncategory/" + deductionCategoryId, Method.DELETE);
+            ApiRequest($"/business/{businessId}/deductioncategory/{deductionCategoryId}", Method.DELETE);
         }
     }
 }

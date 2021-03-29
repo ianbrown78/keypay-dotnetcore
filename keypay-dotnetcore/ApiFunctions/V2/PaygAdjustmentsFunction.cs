@@ -10,7 +10,7 @@ namespace KeyPay.ApiFunctions.V2
 
         public PaygAdjustmentResponse List(int businessId, int payRunId)
         {
-            return ApiRequest<PaygAdjustmentResponse>("/business/" + businessId + "/payrun/" + payRunId + "/paygadjustments");
+            return ApiRequest<PaygAdjustmentResponse>($"/business/{businessId}/payrun/{payRunId}/paygadjustments");
         }
     }
 }

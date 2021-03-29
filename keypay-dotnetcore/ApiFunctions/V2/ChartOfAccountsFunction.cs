@@ -26,7 +26,8 @@ namespace KeyPay.ApiFunctions.V2
 
         public ChartOfAccountsLocationGroupModel UpdateLocation(int businessId, ChartOfAccountsLocationGroupModel chartOfAccounts)
         {
-            return ApiRequest<ChartOfAccountsLocationGroupModel, ChartOfAccountsLocationGroupModel>($"/business/{businessId}/chartofaccounts/location/{chartOfAccounts.LocationId}", chartOfAccounts, Method.POST);
+            return ApiRequest<ChartOfAccountsLocationGroupModel, ChartOfAccountsLocationGroupModel>(
+                $"/business/{businessId}/chartofaccounts/location/{chartOfAccounts.LocationId}", chartOfAccounts, Method.POST);
         }
 
         public void DeleteLocation(int businessId, int locationId)

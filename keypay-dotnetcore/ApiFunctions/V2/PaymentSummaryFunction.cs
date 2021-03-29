@@ -14,28 +14,30 @@ namespace KeyPay.ApiFunctions.V2
 
         public List<PaygPaymentSummaryModel> Get(int businessId, int financialYearEnding, int? employeeId = null, int? employingEntityId = 0, int? locationId = null)
         {
-            var url = string.Format("/business/{0}/paymentsummary/{1}?$filter=", businessId, financialYearEnding);
+            var url = $"/business/{businessId}/paymentsummary/{financialYearEnding}?$filter=";
             var hasFilter = false;
             if (employeeId.HasValue)
             {
                 hasFilter = true;
-                url += string.Format("EmployeeId eq {0}", employeeId.Value);
+                url += $"EmployeeId eq {employeeId.Value}";
             }
             if (employingEntityId != 0)
             {
-                url += string.Format("{0} EmployingEntityId eq {1}", hasFilter? " and " : "", employingEntityId == null ? "null" : employingEntityId.ToString());
+                url +=
+                    $"{(hasFilter ? " and " : "")} EmployingEntityId eq {(employingEntityId == null ? "null" : employingEntityId.ToString())}";
                 hasFilter = true;
             }
             if (locationId.HasValue)
             {
-                url += string.Format("{0} LocationId eq {1}", hasFilter ? " and " : "", locationId.Value);
+                url += $"{(hasFilter ? " and " : "")} LocationId eq {locationId.Value}";
             }
             return ApiRequest<List<PaygPaymentSummaryModel>>(url);
         }
 
         public PaygPaymentSummaryModel Get(int businessId, int financialYearEnding, int employeeId)
         {
-            return ApiRequest<List<PaygPaymentSummaryModel>>(string.Format("/business/{0}/paymentsummary/{1}?$filter=EmployeeId eq {2}", businessId, financialYearEnding, employeeId)).FirstOrDefault();
+            return ApiRequest<List<PaygPaymentSummaryModel>>(
+                $"/business/{businessId}/paymentsummary/{financialYearEnding}?$filter=EmployeeId eq {employeeId}").FirstOrDefault();
         }
 
         public void Generate(int businessId, int financialYearEnding, int? employeeId = null, int? employingEntityId = null, int? locationId = null)
@@ -45,18 +47,18 @@ namespace KeyPay.ApiFunctions.V2
 
         private string FormatUrl(int businessId, int financialYearEnding, int? employeeId = null, int? employingEntityId = null, int? locationId = null)
         {
-            var url = string.Format("/business/{0}/paymentsummary/{1}?x=1", businessId, financialYearEnding);
+            var url = $"/business/{businessId}/paymentsummary/{financialYearEnding}?x=1";
             if (employeeId.HasValue)
             {
-                url += string.Format("&employeeId={0}", employeeId.Value);
+                url += $"&employeeId={employeeId.Value}";
             }
             if (employingEntityId.HasValue)
             {
-                url += string.Format("&employingEntityId={0}", employingEntityId.Value);
+                url += $"&employingEntityId={employingEntityId.Value}";
             }
             if (locationId.HasValue)
             {
-                url += string.Format("&locationId={0}", locationId.Value);
+                url += $"&locationId={locationId.Value}";
             }
             return url;
         }

@@ -12,12 +12,13 @@ namespace KeyPay.ApiFunctions.V2
 
         public ExpensesResponse List(int businessId, int payRunId)
         {
-            return ApiRequest<ExpensesResponse>("/business/" + businessId + "/payrun/" + payRunId + "/employeeexpenses");
+            return ApiRequest<ExpensesResponse>($"/business/{businessId}/payrun/{payRunId}/employeeexpenses");
         }
 
         public ExpenseModel Submit(int businessId, SubmitExpensesRequest expenses)
         {
-            return ApiRequest<ExpenseModel, SubmitExpensesRequest>("/business/" + businessId + "/payrun/" + expenses.PayRunId + "/employeeexpenses", expenses, Method.POST);
+            return ApiRequest<ExpenseModel, SubmitExpensesRequest>(
+                $"/business/{businessId}/payrun/{expenses.PayRunId}/employeeexpenses", expenses, Method.POST);
         }
     }
 }

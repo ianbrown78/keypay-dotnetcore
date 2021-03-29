@@ -13,27 +13,27 @@ namespace KeyPay.ApiFunctions.V2
 
         public IList<LeaveCategoryModel> List(int businessId)
         {
-            return ApiRequest<List<LeaveCategoryModel>>("/business/" + businessId + "/leavecategory");
+            return ApiRequest<List<LeaveCategoryModel>>($"/business/{businessId}/leavecategory");
         }
 
         public LeaveCategoryModel Get(int businessId, int leaveCategoryId)
         {
-            return ApiRequest<LeaveCategoryModel>("/business/" + businessId + "/leavecategory/" + leaveCategoryId);
+            return ApiRequest<LeaveCategoryModel>($"/business/{businessId}/leavecategory/{leaveCategoryId}");
         }
 
         public LeaveCategoryModel Create(int businessId, LeaveCategoryModel model)
         {
-            return ApiRequest<LeaveCategoryModel, LeaveCategoryModel>("/business/" + businessId + "/leavecategory", model, Method.POST);
+            return ApiRequest<LeaveCategoryModel, LeaveCategoryModel>($"/business/{businessId}/leavecategory", model, Method.POST);
         }
 
         public LeaveCategoryModel Update(int businessId, LeaveCategoryModel model)
         {
-            return ApiRequest<LeaveCategoryModel, LeaveCategoryModel>("/business/" + businessId + "/leavecategory/" + model.Id, model, Method.PUT);
+            return ApiRequest<LeaveCategoryModel, LeaveCategoryModel>($"/business/{businessId}/leavecategory/{model.Id}", model, Method.PUT);
         }
 
         public void Delete(int businessId, int leaveCategoryId)
         {
-            ApiRequest("/business/" + businessId + "/leavecategory/" + leaveCategoryId, Method.DELETE);
+            ApiRequest($"/business/{businessId}/leavecategory/{leaveCategoryId}", Method.DELETE);
         }
     }
 }

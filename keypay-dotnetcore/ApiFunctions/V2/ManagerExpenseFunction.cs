@@ -17,8 +17,8 @@ namespace KeyPay.ApiFunctions.V2
         {
             var queryString = new StringBuilder("?");
             if (filter.Status.HasValue) queryString.Append($"Status={filter.Status.ToString()}&");
-            if (filter.FromDate.HasValue) queryString.Append($"FromDate={filter.FromDate.Value.ToString("yyyy-MM-dd")}&");
-            if (filter.ToDate.HasValue) queryString.Append($"ToDate={filter.ToDate.Value.ToString("yyyy-MM-dd")}&");
+            if (filter.FromDate.HasValue) queryString.Append($"FromDate={filter.FromDate.Value:yyyy-MM-dd}&");
+            if (filter.ToDate.HasValue) queryString.Append($"ToDate={filter.ToDate.Value:yyyy-MM-dd}&");
             if (filter.ExpenseCategoryId.HasValue) queryString.Append($"ExpenseCategoryId={filter.ExpenseCategoryId}&");
             if (filter.LocationId.HasValue) queryString.Append($"LocationId={filter.LocationId}&");
             if (filter.EmployeeId.HasValue) queryString.Append($"EmployeeId={filter.EmployeeId}&");
@@ -65,12 +65,14 @@ namespace KeyPay.ApiFunctions.V2
 
         public ManagerExpenseRequestModel Create(int businessId, int employeeId, ManagerExpenseRequestEditModel expenseRequestModel)
         {
-            return ApiRequest<ManagerExpenseRequestModel, ManagerExpenseRequestEditModel>($"/business/{businessId}/manager/{employeeId}/expense", expenseRequestModel, Method.POST);
+            return ApiRequest<ManagerExpenseRequestModel, ManagerExpenseRequestEditModel>(
+                $"/business/{businessId}/manager/{employeeId}/expense", expenseRequestModel, Method.POST);
         }
 
         public ManagerExpenseRequestModel Update(int businessId, int employeeId, int expenseRequestId, ManagerExpenseRequestEditModel expenseRequestModel)
         {
-            return ApiRequest<ManagerExpenseRequestModel, ManagerExpenseRequestEditModel>($"/business/{businessId}/manager/{employeeId}/expense/{expenseRequestId}", expenseRequestModel, Method.PUT);
+            return ApiRequest<ManagerExpenseRequestModel, ManagerExpenseRequestEditModel>(
+                $"/business/{businessId}/manager/{employeeId}/expense/{expenseRequestId}", expenseRequestModel, Method.PUT);
         }
 
         public ManagerExpenseRequestModel Approve(int businessId, int employeeId, int expenseRequestId)
@@ -80,7 +82,8 @@ namespace KeyPay.ApiFunctions.V2
 
         public ManagerExpenseRequestModel Decline(int businessId, int employeeId, int expenseRequestId, string reason)
         {
-            return ApiRequest<ManagerExpenseRequestModel, DeclineReason>($"/business/{businessId}/manager/{employeeId}/expense/{expenseRequestId}/decline", new DeclineReason { Reason = reason }, Method.POST);
+            return ApiRequest<ManagerExpenseRequestModel, DeclineReason>(
+                $"/business/{businessId}/manager/{employeeId}/expense/{expenseRequestId}/decline", new DeclineReason { Reason = reason }, Method.POST);
         }
 
         public void Delete(int businessId, int employeeId, int expenseRequestId)

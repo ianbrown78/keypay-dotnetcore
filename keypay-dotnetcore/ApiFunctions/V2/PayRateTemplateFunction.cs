@@ -12,12 +12,12 @@ namespace KeyPay.ApiFunctions.V2
 
         public IList<PayRateTemplateModel> List(int businessId)
         {
-            return ApiRequest<List<PayRateTemplateModel>>(string.Format("/business/{0}/payratetemplate", businessId));
+            return ApiRequest<List<PayRateTemplateModel>>($"/business/{businessId}/payratetemplate");
         }
 
         public int Create(int businessId, PayRateTemplateModel model)
         {
-            return ApiRequest<int, PayRateTemplateModel>("/business/" + businessId + "/payratetemplate", model, Method.POST);
+            return ApiRequest<int, PayRateTemplateModel>($"/business/{businessId}/payratetemplate", model, Method.POST);
         }
     }
 }

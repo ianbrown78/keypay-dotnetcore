@@ -13,10 +13,13 @@ namespace KeyPay.ApiFunctions.V2
 
         public List<LeaveBalanceModel> List(int businessId, int employeeId, DateTime? asAtDate = null)
         {
-            var url = string.Format("/business/{0}/employee/{1}/leavebalances", businessId, employeeId);
+            var url = $"/business/{businessId}/employee/{employeeId}/leavebalances";
             if (asAtDate.HasValue)
-                url = string.Format(url + "?asatdate{0}", asAtDate.Value.ToString("yyyy-MM-dd"));
-
+            {
+                var asatdate = asAtDate.Value.ToString("yyyy-MM-dd");
+                url = string.Format(url + $"?asatdate={asAtDate}");
+            }
+            
             return
                 ApiRequest<List<LeaveBalanceModel>>(url);
         }

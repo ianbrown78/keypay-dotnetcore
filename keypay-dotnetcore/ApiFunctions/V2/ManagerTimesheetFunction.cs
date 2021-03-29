@@ -36,8 +36,8 @@ namespace KeyPay.ApiFunctions.V2
         public PagedResultModel<ManagerTimesheetModel> List(int businessId, ManagerTimesheetRequestFilterModel filter)
         {
             var queryString = new StringBuilder("?");
-            queryString.Append($"FromDate={filter.FromDate.ToString("yyyy-MM-dd")}&");
-            queryString.Append($"ToDate={filter.ToDate.ToString("yyyy-MM-dd")}&");
+            queryString.Append($"FromDate={filter.FromDate:yyyy-MM-dd}&");
+            queryString.Append($"ToDate={filter.ToDate:yyyy-MM-dd}&");
             if (filter.Status.HasValue) queryString.Append($"Status={filter.Status.ToString()}&");
             if (filter.EmployeeId.HasValue) queryString.Append($"EmployeeId={filter.EmployeeId.ToString()}&");
             if (filter.EmployeeGroupId.HasValue) queryString.Append($"EmployeeGroupId={filter.EmployeeGroupId.ToString()}&");

@@ -12,12 +12,12 @@ namespace KeyPay.ApiFunctions.V2
 
         public Dictionary<string, List<LeaveAllowanceModel>> List(int businessId)
         {
-            return ApiRequest<Dictionary<string, List<LeaveAllowanceModel>>>("/business/" + businessId + "/leaveallowances");
+            return ApiRequest<Dictionary<string, List<LeaveAllowanceModel>>>($"/business/{businessId}/leaveallowances");
         }
 
         public void Update(int businessId, SubmitEmployeeLeaveAllowancesRequest leaveAllowances)
         {
-            ApiRequest<object, SubmitEmployeeLeaveAllowancesRequest>("/business/" + businessId + "/leaveallowances", leaveAllowances, Method.PUT);
+            ApiRequest<object, SubmitEmployeeLeaveAllowancesRequest>($"/business/{businessId}/leaveallowances", leaveAllowances, Method.PUT);
         }
     }
 }

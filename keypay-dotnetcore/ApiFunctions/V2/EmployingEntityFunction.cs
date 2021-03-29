@@ -12,27 +12,27 @@ namespace KeyPay.ApiFunctions.V2
 
         public List<EmployingEntityModel> List(int businessId)
         {
-            return ApiRequest<List<EmployingEntityModel>>("/business/" + businessId + "/employingentity");
+            return ApiRequest<List<EmployingEntityModel>>($"/business/{businessId}/employingentity");
         }
 
         public EmployingEntityModel Get(int businessId, int employingEntityId)
         {
-            return ApiRequest<EmployingEntityModel>("/business/" + businessId + "/employingentity/" + employingEntityId);
+            return ApiRequest<EmployingEntityModel>($"/business/{businessId}/employingentity/{employingEntityId}");
         }
 
         public EmployingEntityModel Create(int businessId, EmployingEntityModel model)
         {
-            return ApiRequest<EmployingEntityModel, EmployingEntityModel>("/business/" + businessId + "/employingentity", model, Method.POST);
+            return ApiRequest<EmployingEntityModel, EmployingEntityModel>($"/business/{businessId}/employingentity", model, Method.POST);
         }
 
         public void Update(int businessId, EmployingEntityModel model)
         {
-            ApiRequest<EmployingEntityModel, EmployingEntityModel>("/business/" + businessId + "/employingentity/" + model.Id, model, Method.PUT);
+            ApiRequest<EmployingEntityModel, EmployingEntityModel>($"/business/{businessId}/employingentity/{model.Id}", model, Method.PUT);
         }
 
         public void Delete(int businessId, int id)
         {
-            ApiRequest<EmployingEntityModel>("/business/" + businessId + "/employingentity/" + id, Method.DELETE);
+            ApiRequest<EmployingEntityModel>($"/business/{businessId}/employingentity/{id}", Method.DELETE);
         }
     }
 }

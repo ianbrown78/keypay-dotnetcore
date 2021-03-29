@@ -11,7 +11,7 @@ namespace KeyPay.ApiFunctions.V2
 
         public PayRunDetailsModel Get(int businessId, int payRunId)
         {
-            return ApiRequest<PayRunDetailsModel>("/business/" + businessId + "/payrun/" + payRunId + "/details");
+            return ApiRequest<PayRunDetailsModel>($"/business/{businessId}/payrun/{payRunId}/details");
         }
     }
 }

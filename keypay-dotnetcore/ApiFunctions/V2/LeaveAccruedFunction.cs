@@ -11,7 +11,7 @@ namespace KeyPay.ApiFunctions.V2
 
         public LeaveAccrualResponse List(int businessId, int payRunId)
         {
-            return ApiRequest<LeaveAccrualResponse>("/business/" + businessId + "/payrun/" + payRunId + "/leaveaccrued");
+            return ApiRequest<LeaveAccrualResponse>($"/business/{businessId}/payrun/{payRunId}/leaveaccrued");
         }
     }
 }

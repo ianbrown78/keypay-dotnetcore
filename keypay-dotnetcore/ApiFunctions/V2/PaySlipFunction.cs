@@ -11,12 +11,13 @@ namespace KeyPay.ApiFunctions.V2
 
         public Dictionary<string, PaySlipModel> List(int businessId, int payRunId, bool showAllData = false)
         {
-            return ApiRequest<Dictionary<string, PaySlipModel>>(string.Format("business/{0}/payrun/{1}/payslips?showAllData={2}", businessId, payRunId, showAllData));
+            return ApiRequest<Dictionary<string, PaySlipModel>>(
+                $"business/{businessId}/payrun/{payRunId}/payslips?showAllData={showAllData}");
         }
 
         public byte[] Download(int businessId, int payRunId, int employeeId)
         {
-            return ApiByteArrayRequest("/business/" + businessId + "/payrun/" + payRunId + "/file/payslip/" + employeeId);
+            return ApiByteArrayRequest($"/business/{businessId}/payrun/{payRunId}/file/payslip/{employeeId}");
         }
     }
 }

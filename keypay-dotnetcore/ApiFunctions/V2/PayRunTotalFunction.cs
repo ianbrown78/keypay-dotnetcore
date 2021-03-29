@@ -10,7 +10,7 @@ namespace KeyPay.ApiFunctions.V2
 
         public PayRunTotalResponse List(int businessId, int payRunId)
         {
-            return ApiRequest<PayRunTotalResponse>("/business/" + businessId + "/payrun/" + payRunId + "/totals");
+            return ApiRequest<PayRunTotalResponse>($"/business/{businessId}/payrun/{payRunId}/totals");
         }
     }
 }

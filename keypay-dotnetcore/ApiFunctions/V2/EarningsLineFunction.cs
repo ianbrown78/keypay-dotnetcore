@@ -16,7 +16,8 @@ namespace KeyPay.ApiFunctions.V2
 
         public EarningsLineResponse List(int businessId, int payRunId, int employeeId)
         {
-            return ApiRequest<EarningsLineResponse>(string.Format("/business/{0}/payrun/{1}/earningslines/{2}", businessId, payRunId, employeeId));
+            return ApiRequest<EarningsLineResponse>(
+                $"/business/{businessId}/payrun/{payRunId}/earningslines/{employeeId}");
         }
 
         public void Submit(int businessId, EarningsLineRequest earningsLines)

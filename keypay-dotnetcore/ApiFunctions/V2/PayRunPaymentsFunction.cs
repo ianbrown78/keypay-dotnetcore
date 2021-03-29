@@ -12,7 +12,7 @@ namespace KeyPay.ApiFunctions.V2
 
         public List<PayRunBankPaymentModel> Get(int businessId, int payRunId)
         {
-            return ApiRequest<List<PayRunBankPaymentModel>>("/business/" + businessId + "/payrun/" + payRunId + "/payments");
+            return ApiRequest<List<PayRunBankPaymentModel>>($"/business/{businessId}/payrun/{payRunId}/payments");
         }
     }
 }

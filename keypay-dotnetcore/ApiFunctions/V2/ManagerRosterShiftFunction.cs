@@ -14,7 +14,7 @@ namespace KeyPay.ApiFunctions.V2
         public ManagerRosterDataModel Manage(int businessId, ManagerRosterShiftFilterModel filter)
         {
             var queryString = new StringBuilder("?");          
-            queryString.Append($"Date={filter.Date.ToString("yyyy-MM-dd")}&");
+            queryString.Append($"Date={filter.Date:yyyy-MM-dd}&");
             if (filter.EmployeeId.HasValue) queryString.Append($"EmployeeId={filter.EmployeeId.Value}&");
             if (filter.LocationId.HasValue) queryString.Append($"LocationId={filter.LocationId.Value}&");
             if (filter.RoleId.HasValue) queryString.Append($"RoleId={filter.RoleId.Value}&");
