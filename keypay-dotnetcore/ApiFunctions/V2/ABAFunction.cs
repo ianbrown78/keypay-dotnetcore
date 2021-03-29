@@ -12,12 +12,12 @@ namespace KeyPay.ApiFunctions.V2
 
         public List<ABAModel> Get(int businessId)
         {
-            return ApiRequest<List<ABAModel>>(string.Format("/business/{0}/ABA", businessId));
+            return ApiRequest<List<ABAModel>>($"/business/{businessId}/ABA");
         }
 
         public void Update(int businessId, ABAModel model)
         {
-            ApiRequest(string.Format("/business/{0}/ABA", businessId), model, Method.POST);
+            ApiRequest($"/business/{businessId}/ABA", model, Method.POST);
         }
     }
 }
