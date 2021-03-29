@@ -15,9 +15,6 @@ namespace KeyPay.Auth
             RefreshToken = refreshToken;
         }
 
-        public override IAuthenticator Authenticator
-        {
-            get { return new OAuth2AuthorizationRequestHeaderAuthenticator(AccessToken, "Bearer"); }
-        }
+        public override IAuthenticator Authenticator => new OAuth2AuthorizationRequestHeaderAuthenticator(AccessToken, "Bearer");
     }
 }
