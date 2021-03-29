@@ -2,7 +2,6 @@
 using System.Net;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
-using System.Text.Json.Serialization;
 using KeyPay.Exceptions;
 using Newtonsoft.Json;
 using RestSharp;
@@ -13,7 +12,7 @@ namespace KeyPay
     public class ApiRequestExecutor
     {
         public string Token { get; set; }
-        public IAuthenticator Authenticator { get; set; }
+        public IAuthenticator Authenticator { get; init; }
         private readonly string baseUrl;
         
         public ApiRequestExecutor(string baseUrl)
@@ -77,7 +76,7 @@ namespace KeyPay
                 throw new KeyPayHttpException(resp.StatusCode, resp.StatusDescription, requestMethod, requestResource, resp.Content);
         }
         
-        //Trust all certificates
+        // Trust all certificates
         // callback used to validate the certificate in an SSL conversation
         private static bool ValidateRemoteCertificate(object sender, X509Certificate cert, X509Chain chain,
             SslPolicyErrors policyErrors)
