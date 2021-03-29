@@ -4,8 +4,8 @@ namespace KeyPay.Auth
 {
     public class OAuthAuthenticationDetails : AuthenticationDetails
     {
-        public string AccessToken { get; set; }
-        public string RefreshToken { get; set; }
+        private string AccessToken { get; set; }
+        private string RefreshToken { get; set; }
 
         public OAuthAuthenticationDetails(
             string accessToken,
