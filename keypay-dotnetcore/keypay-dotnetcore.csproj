@@ -4,6 +4,16 @@
         <TargetFramework>net5.0</TargetFramework>
         <RootNamespace>KeyPay</RootNamespace>
         <AssemblyName>KeyPay</AssemblyName>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageId>KeyPay-Core</PackageId>
+        <Title>KeyPay-Core</Title>
+        <Authors>Ian Brown</Authors>
+        <Description>KeyPay API Client for .Net Core</Description>
+        <PackageLicenseUrl>https://github.com/ianbrown78/keypay-dotnetcore/LICENSE</PackageLicenseUrl>
+        <RepositoryUrl>https://github.com/ianbrown78/keypay-dotnetcore</RepositoryUrl>
+        <Company>Ian Brown</Company>
+        <Product>KeyPay-Core</Product>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
     </PropertyGroup>
 
     <ItemGroup>
