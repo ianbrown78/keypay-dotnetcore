@@ -8,5 +8,6 @@
         HoursPerPayRun = 4,
         StandardDays = 5,
         StandardWeeks = 6,
+        DayPerCalendarDay = 7
     }
 }
