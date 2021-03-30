@@ -1,5 +1,6 @@
 # keypay-dotnetcore
 KeyPay API Client for .Net Core 5.x
+This repo is derived from the official KeyPay .Net 4.5.x client repo located at [https://github.com/KeyPay/keypay-dotnet]
 
 
 ### Get Started
