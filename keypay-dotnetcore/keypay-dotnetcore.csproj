@@ -9,11 +9,17 @@
         <Title>KeyPay-Core</Title>
         <Authors>Ian Brown</Authors>
         <Description>KeyPay API Client for .Net Core</Description>
-        <PackageLicenseUrl>https://github.com/ianbrown78/keypay-dotnetcore/LICENSE</PackageLicenseUrl>
+        <PackageLicenseUrl>https://github.com/ianbrown78/keypay-dotnetcore/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/ianbrown78/keypay-dotnetcore</RepositoryUrl>
         <Company>Ian Brown</Company>
         <Product>KeyPay-Core</Product>
-        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <AssemblyVersion>1.0.1</AssemblyVersion>
+        <Copyright>Copyright 2021</Copyright>
+        <PackageProjectUrl>https://github.com/ianbrown78/keypay-dotnetcore</PackageProjectUrl>
+        <PackageTags>keypay yourpayroll api payroll</PackageTags>
+        <PackageReleaseNotes>Currently a beta product. Use at your own peril. A package built from the official .Net Framework 4.5 repo for .Net Core 5.x</PackageReleaseNotes>
+        <PackageVersion>1.0.1</PackageVersion>
+		<IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>
