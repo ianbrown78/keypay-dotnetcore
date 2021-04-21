@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using KeyPay.DomainModels.V2.Business;
 using KeyPay.DomainModels.V2.Employee;
 using RestSharp;
 
@@ -38,6 +39,11 @@ namespace KeyPay.ApiFunctions.V2
         public EmployeeModel Get(int businessId, int employeeId)
         {
             return ApiRequest<EmployeeModel>($"/business/{businessId}/employee/{employeeId}");
+        }
+
+        public IList<WorkTypeModel> GetWorkTypes(int businessId, int employeeId)
+        {
+            return ApiRequest<List<WorkTypeModel>>($"/business/{businessId}/employee/{employeeId}/worktype");
         }
 
         public CreateEmployeeResponse Create(int businessId, EmployeeModel model)
